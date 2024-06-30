@@ -134,7 +134,18 @@ int main()
             int position;
             cout << "input position:";
             cin >> position;
-            delete_position(head, position);
+            if (position == 0)
+            {
+                Node *tmp = head;
+                head = head->next;
+                delete tmp;
+                cout << "deleted at position" << position << endl;
+            }
+            else
+            {
+
+                delete_position(head, position);
+            }
         }
         else if (option == 6)
         {
