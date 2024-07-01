@@ -27,6 +27,16 @@ void insertATail(Node *&head, int v)
     }
     tmp->next = newNode;
 };
+void countList(Node * head){
+    int count = 0;
+    Node *tmp = head;
+    while (tmp != NULL)
+    {
+        count++;
+        tmp = tmp->next;
+    }
+    cout << count;
+}
 void printList(Node *head)
 {
     cout << "List: ";
@@ -48,6 +58,7 @@ int main()
         insertATail(head, value);
         
     }
-    printList(head);
+    // printList(head);
+   countList(head);
     return 0;
 }
