@@ -27,7 +27,8 @@ void insertATail(Node *&head, int v)
     }
     tmp->next = newNode;
 };
-void countList(Node * head){
+void countList(Node *head)
+{
     int count = 0;
     Node *tmp = head;
     while (tmp != NULL)
@@ -41,13 +42,9 @@ void printList(Node *head)
 {
     cout << "List: ";
     Node *tmp = head;
-    while (tmp != NULL)
-    {
-        cout << tmp->value << " ";
-        tmp = tmp->next;
-    }
 }
-void duplicate_value(Node * head){
+void duplicate_value(Node *head)
+{
     int flag = 0;
     Node *tmp = head;
     while (tmp != NULL)
@@ -55,7 +52,8 @@ void duplicate_value(Node * head){
         Node *tmp2 = tmp->next;
         while (tmp2 != NULL)
         {
-            if(tmp->value == tmp2->value){
+            if (tmp->value == tmp2->value)
+            {
                 flag = 1;
                 break;
             }
@@ -63,10 +61,43 @@ void duplicate_value(Node * head){
         }
         tmp = tmp->next;
     }
-    if(flag == 1){
+    if (flag == 1)
+    {
         cout << "YES";
-    }else{
+    }
+    else
+    {
         cout << "NO";
+    }
+}
+void middleElement(Node *head)
+{
+    if (head == NULL)
+    {
+        cout << "The list is empty." << endl;
+        return;
+    }
+
+    Node *slow = head;
+    Node *fast = head;
+    Node *prev = NULL;
+
+    while (fast != NULL && fast->next != NULL)
+    {
+        prev = slow;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    if (fast == NULL)
+    {
+        // Even number of nodes
+        cout << prev->value << " " << slow->value << endl;
+    }
+    else
+    {
+        // Odd number of nodes
+        cout << slow->value << endl;
     }
 }
 int main()
@@ -76,12 +107,13 @@ int main()
     while (true)
     {
         cin >> value;
-        if(value == -1) break;
+        if (value == -1)
+            break;
         insertATail(head, value);
-        
     }
     // printList(head);
-//    countList(head);
-    duplicate_value(head);
+    //    countList(head);
+    // duplicate_value(head);
+    middleElement(head);
     return 0;
 }
