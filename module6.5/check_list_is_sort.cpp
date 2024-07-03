@@ -125,10 +125,10 @@ int main()
             break;
         insertATail(head, value);
     }
-    // printList(head);
-    //    countList(head);
-    // duplicate_value(head);
-    // middleElement(head);
+    printList(head);
+    countList(head);
+    duplicate_value(head);
+    middleElement(head);
     check_sort(head);
     return 0;
 }
