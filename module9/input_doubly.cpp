@@ -102,42 +102,31 @@ void delete_head(Node *&head)
     delete deleteNode;
     head->prev = NULL;
 }
+void reverse_print(Node *head)
+{
+    Node *tmp = head;
+    while (tmp != NULL)
+    {
+        cout << tmp->value << " ";
+        tmp = tmp->prev;
+    }
+    cout << endl;
+};
 int main()
 {
-    Node *head = new Node(10);
-    Node *a = new Node(20);
-    Node *b = new Node(30);
-    Node *c = new Node(40);
-    Node *tail = c;
-    head->next = a;
-    a->prev = head;
-    a->next = b;
-    b->prev = a;
-    b->next = c;
-    c->prev = b;
-    int pos, val;
-    cin >> pos >> val;
-    // delete_tail(tail);
 
-    delete_head(head);
-    if (pos >= size(head))
+    Node *head = NULL;
+    Node *tail = NULL;
+    int val;
+    while (true)
     {
-        cout << "invalid " << endl;
-    }
-    else if (pos == 0)
-    {
-        delete_head(head);
-    }
-    else if (pos == size(head) - 1)
-    {
-        delete_tail(tail);
-    }
-    else
-    {
-        delete_list(head, pos);
+        cin >> val;
+        if (val == -1)
+            break;
+        insert_tail(head, tail, val);
     }
 
     normal_print(head);
-
+    reverse_print(tail);
     return 0;
 }
