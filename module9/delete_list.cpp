@@ -75,6 +75,33 @@ void normal_print(Node *head)
     }
     cout << endl;
 };
+
+void delete_list(Node *&head, int pos)
+{
+    Node *tmp = head;
+    for (int i = 1; i <= pos - 1; i++)
+    {
+        tmp = tmp->next;
+    }
+    Node *deleNode = tmp->next;
+    tmp->next = tmp->next->next;
+    tmp->next->prev = tmp;
+    delete deleNode;
+}
+void delete_tail(Node *&tail)
+{
+    Node * deleteNode = tail;
+    tail=tail->prev;
+    delete deleteNode;
+    tail->next = NULL;
+
+}
+void delete_head(Node*&head){
+    Node * deleteNode = head;
+    head= head->next;
+    delete deleteNode;
+    head->prev=NULL;
+}
 int main()
 {
     Node *head = new Node(10);
@@ -90,24 +117,28 @@ int main()
     c->prev = b;
     int pos, val;
     cin >> pos >> val;
-    if (pos == 0)
-    {
-        insert_head(head, tail, val);
-    }
-    else if (pos == size(head))
-    {
-        insert_tail(head, tail, val);
-    }
+    // delete_tail(tail);
+    
+    delete_head(head);
 
-    else if (pos >= size(head))
-    {
-        cout << "Invalid" << endl;
-    }
+    // if (pos == 0)
+    // {
+    //     insert_head(head, tail, val);
+    // }
+    // else if (pos == size(head))
+    // {
+    //     insert_tail(head, tail, val);
+    // }
 
-    else
-    {
-        insetAnyPosition(head, pos, val);
-    }
+    // else if (pos >= size(head))
+    // {
+    //     cout << "Invalid" << endl;
+    // }
+
+    // else
+    // {
+    //     insetAnyPosition(head, pos, val);
+    // }
     normal_print(head);
 
     return 0;
