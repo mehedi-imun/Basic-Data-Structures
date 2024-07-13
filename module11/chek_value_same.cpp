@@ -83,7 +83,7 @@ int main()
             break;
         insert_tail(head1, tail1, val);
     }
-    // normal_print(head1);
+    normal_print(head1);
     Node *head2 = NULL;
     Node *tail2 = NULL;
     int val2;
@@ -95,7 +95,7 @@ int main()
         insert_tail(head2, tail2, val2);
     }
 
-    // normal_print(head2);
+    normal_print(head2);
     checkSame(head1, head2);
 
     return 0;
